@@ -7,7 +7,7 @@ class student:
     def getname(self):
         return self.name        
     def appendsub(self,sub):
-        self.subject.append(sub) 
+        self.subject.add(sub) 
     def deets(self):
         return self.name,self.subject
 class subject:
@@ -19,9 +19,9 @@ class subject:
 English=subject("English","eng1012D")
 Maths=subject("Maths","ma2021D")
 Comp=subject("Computer Science","cs3120D")
-sac=student("Sachin",[English.getsubname()])
-cas=student("Cashin",[Maths.getsubname(),English.getsubname()])
-print(sac.getname())
+sac=student("Sachin",{English.getsubname()})
+cas=student("Cashin",{Maths.getsubname(),English.getsubname()})
+print(sac.getname()) 
 print(sac.getsub())
 print(cas.deets())
 sac.appendsub(Comp.getsubname())
