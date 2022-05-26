@@ -6,6 +6,10 @@ class student:
         return self.subject
     def getname(self):
         return self.name        
+    def appendsub(self,sub):
+        self.subject.append(sub) 
+    def deets(self):
+        return self.name,self.subject
 class subject:
     def __init__(self,name,code):
         self.subname=name        
@@ -15,15 +19,10 @@ class subject:
 English=subject("English","eng1012D")
 Maths=subject("Maths","ma2021D")
 Comp=subject("Computer Science","cs3120D")
-sac=student("Sachin",{English.getsubname(),Comp.getsubname()})
-cas=student("Cashin",{Maths.getsubname(),English.getsubname()})
-asc=student("Aschin",{English.getsubname(),Maths.getsubname()})
-sca=student("Scahin",{English.getsubname(),Maths.getsubname(),Comp.getsubname()})
+sac=student("Sachin",[English.getsubname()])
+cas=student("Cashin",[Maths.getsubname(),English.getsubname()])
 print(sac.getname())
 print(sac.getsub())
-print(cas.getname())
-print(cas.getsub())
-print(asc.getname())
-print(asc.getsub())
-print(sca.getname())
-print(sca.getsub())
+print(cas.deets())
+sac.appendsub(Comp.getsubname())
+print(sac.deets())
